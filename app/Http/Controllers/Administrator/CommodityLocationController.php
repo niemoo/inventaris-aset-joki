@@ -40,7 +40,7 @@ class CommodityLocationController extends Controller
     {
         $this->commodityLocationRepository->store($request);
 
-        return redirect()->route('admin.ruangan.index')->with('success', 'Data ruangan berhasil ditambahkan!');
+        return redirect()->route('admin.tempat.index')->with('success', 'Data ruangan berhasil ditambahkan!');
     }
 
     /**
@@ -54,7 +54,7 @@ class CommodityLocationController extends Controller
     {
         $this->commodityLocationRepository->update($request, $id);
 
-        return redirect()->route('admin.ruangan.index')->with('success', 'Data ruangan berhasil diubah!');
+        return redirect()->route('admin.tempat.index')->with('success', 'Data ruangan berhasil diubah!');
     }
 
     /**
@@ -66,11 +66,11 @@ class CommodityLocationController extends Controller
     public function destroy($id)
     {
         if ($this->commodityLocationRepository->findCommodityLocation($id)->commodities()->exists()) {
-            return redirect()->route('admin.ruangan.index')->with('error', 'Data yang memiliki relasi tidak dapat dihapus!');
+            return redirect()->route('admin.tempat.index')->with('error', 'Data yang memiliki relasi tidak dapat dihapus!');
         }
 
         $this->commodityLocationRepository->delete($id);
 
-        return redirect()->route('admin.ruangan.index')->with('success', 'Data ruangan berhasil dihapus!');
+        return redirect()->route('admin.tempat.index')->with('success', 'Data ruangan berhasil dihapus!');
     }
 }

@@ -18,7 +18,7 @@ class CreateCommoditiesTable extends Migration
             $table->foreignId('user_id')->constrained();
             $table->foreignId('commodity_category_id')->constrained();
             $table->foreignId('commodity_location_id')->constrained();
-            $table->string('unique_commodity_number');
+            // $table->string('unique_commodity_number');
             $table->string('name');
             $table->bigInteger('amount');
             $table->date('register_date');

@@ -1,6 +1,6 @@
 <footer class="main-footer">
     <div class="footer-left font-weight-bold">
-        Aplikasi {{ config('app.name') }}
+        Pertanian Sejahtera
     </div>
     <div class="footer-right">
         {{ date('Y') }}

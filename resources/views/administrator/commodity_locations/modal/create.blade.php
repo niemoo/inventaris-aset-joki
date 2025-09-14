@@ -10,20 +10,21 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('admin.ruangan.store') }}" method="POST">
+                <form action="{{ route('admin.tempat.store') }}" method="POST">
                     @csrf
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label for="name">Nama</label>
-                                <input type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
-                                    name="name" id="name" value="{{ old('name') }}" placeholder="Masukkan nama.."
-                                    autofocus required>
+                                <input type="text"
+                                    class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name"
+                                    id="name" value="{{ old('name') }}" placeholder="Masukkan nama.." autofocus
+                                    required>
 
-                                @if($errors->has('name'))
-                                <div class="invalid-feedback font-weight-bold d-block">
-                                    {{ $errors->first('name') }}
-                                </div>
+                                @if ($errors->has('name'))
+                                    <div class="invalid-feedback font-weight-bold d-block">
+                                        {{ $errors->first('name') }}
+                                    </div>
                                 @endif
                             </div>
                         </div>
@@ -33,15 +34,13 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label for="description">Keterangan</label>
-                                <textarea class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}"
-                                    name="description" id="description" cols="30" rows="10"
-                                    placeholder="Masukkan keterangan.."
-                                    style="height: 100px;">{{ old('description') }}</textarea>
+                                <textarea class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" name="description" id="description"
+                                    cols="30" rows="10" placeholder="Masukkan keterangan.." style="height: 100px;">{{ old('description') }}</textarea>
 
-                                @if($errors->has('description'))
-                                <div class="invalid-feedback font-weight-bold d-block">
-                                    {{ $errors->first('description') }}
-                                </div>
+                                @if ($errors->has('description'))
+                                    <div class="invalid-feedback font-weight-bold d-block">
+                                        {{ $errors->first('description') }}
+                                    </div>
                                 @endif
                             </div>
                         </div>

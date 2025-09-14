@@ -33,11 +33,11 @@ Route::middleware(['auth'])->name('admin.')->group(function () {
     Route::middleware(['admin'])->group(function () {
         Route::resource('/pengguna', UserController::class)->except('create', 'show');
         Route::resource('/jenis-aset', CommodityCategoryController::class)->except('create', 'show', 'edit');
-        Route::resource('/ruangan', CommodityLocationController::class)->except('create', 'show', 'edit');
+        Route::resource('/tempat', CommodityLocationController::class)->except('create', 'show', 'edit');
         Route::resource('/aset', CommodityController::class)->except('create', 'show');
 
         Route::get('/jenis-aset/json/{id}', [App\Http\Controllers\Administrator\Json\CommodityCategoryController::class, 'show']);
-        Route::get('/ruangan/json/{id}', [App\Http\Controllers\Administrator\Json\CommodityLocationController::class, 'show']);
+        Route::get('/tempat/json/{id}', [App\Http\Controllers\Administrator\Json\CommodityLocationController::class, 'show']);
     });
 
     Route::middleware(['administrative.staff'])->group(function () {
