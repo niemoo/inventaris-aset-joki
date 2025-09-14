@@ -11,7 +11,7 @@
             <div class="modal-body">
                 <form action="{{ route('admin.ubah-aset.store') }}" method="POST">
                     @csrf
-                    <div class="row">
+                    {{-- <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label for="commodity_id">ID Aset</label>
@@ -25,7 +25,7 @@
                                 </select>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="row">
                         <div class="col-lg-6">
@@ -43,10 +43,10 @@
                                     class="form-control{{ $errors->has('amount') ? ' is-invalid' : '' }}" name="amount"
                                     id="amount" required>
 
-                                @if($errors->has('amount'))
-                                <div class="invalid-feedback font-weight-bold d-block">
-                                    {{ $errors->first('amount') }}
-                                </div>
+                                @if ($errors->has('amount'))
+                                    <div class="invalid-feedback font-weight-bold d-block">
+                                        {{ $errors->first('amount') }}
+                                    </div>
                                 @endif
                             </div>
                         </div>

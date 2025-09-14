@@ -27,7 +27,7 @@ class StoreCommodityRequest extends FormRequest
             'user_id' => 'required',
             'commodity_category_id' => 'required',
             'commodity_location_id' => 'required',
-            'unique_commodity_number' => 'required|min:3|max:191',
+            // 'unique_commodity_number' => 'required|min:3|max:191',
             'name' => 'required|min:3|max:191',
             'amount' => 'required|min:1|max:191',
             'register_date' => 'required',
@@ -50,9 +50,9 @@ class StoreCommodityRequest extends FormRequest
 
             'commodity_location_id.required' => 'Kolom ruangan wajib diisi!',
 
-            'unique_commodity_number.required' => 'Kolom id aset wajib diisi!',
-            'unique_commodity_number.min' => 'Kolom id aset minimal :min karakter!',
-            'unique_commodity_number.max' => 'Kolom id aset maksimal :max karakter!',
+            // 'unique_commodity_number.required' => 'Kolom id aset wajib diisi!',
+            // 'unique_commodity_number.min' => 'Kolom id aset minimal :min karakter!',
+            // 'unique_commodity_number.max' => 'Kolom id aset maksimal :max karakter!',
 
             'name.required' => 'Kolom nama wajib diisi!',
             'name.min' => 'Kolom nama minimal :min karakter!',
