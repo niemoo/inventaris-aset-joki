@@ -64,7 +64,9 @@ class UserRepository
         $user->email = $request->email;
         $user->gender = $request->gender;
         $user->phone_number = $request->phone_number;
-        $user->password = $request->password;
+         if ($request->filled('password')) {
+            $user->password = bcrypt($request->password);
+        }
         $user->save();
     }
 

@@ -29,7 +29,7 @@ class UpdateUserRequest extends FormRequest
             'email' => 'required|email|min:3|max:191',
             'gender' => 'required',
             'phone_number' => 'required|min:3|max:191',
-            'password' => 'required|min:3|max:191'
+            'password' => 'nullable|min:3|max:191'
         ];
     }
 
@@ -58,7 +58,6 @@ class UpdateUserRequest extends FormRequest
             'phone_number.min' => 'Kolom nomor telepon minimal :min karakter!',
             'phone_number.max' => 'Kolom nomor telepon maksimal :max karakter!',
 
-            'password.required' => 'Kolom password wajib diisi!',
             'password.min' => 'Kolom password minimal :min karakter!',
             'password.max' => 'Kolom password maksimal :max karakter!'
         ];

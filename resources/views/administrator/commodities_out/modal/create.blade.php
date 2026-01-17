@@ -101,3 +101,27 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+    <script>
+        const amountInput = document.getElementById('amount');
+
+        amountInput.addEventListener('keydown', function(e) {
+            if (
+                e.key === '-' ||
+                e.key === '+' ||
+                e.key === 'e' ||
+                e.key === 'E' ||
+                e.key === '.'
+            ) {
+                e.preventDefault();
+            }
+        });
+
+        amountInput.addEventListener('input', function() {
+            if (this.value !== '' && Number(this.value) < 1) {
+                this.value = '';
+            }
+        });
+    </script>
+@endpush

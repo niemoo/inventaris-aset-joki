@@ -120,12 +120,20 @@
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label for="condition">Kondisi</label>
+
                                 <select class="form-control{{ $errors->has('condition') ? ' is-invalid' : '' }}"
                                     name="condition" id="condition" required>
-                                    <option selected>Pilih..</option>
-                                    <option value="Sudah Layak">Sudah Layak</option>
-                                    <option value="Layak Sebagian">Layak Sebagian</option>
-                                    <option value="Tidak Layak">Tidak Layak</option>
+
+                                    <option value="" disabled {{ old('condition') ? '' : 'selected' }}>
+                                        Pilih..
+                                    </option>
+
+                                    @foreach (\App\Models\Commodity::CONDITIONS as $condition)
+                                        <option value="{{ $condition }}"
+                                            {{ old('condition') === $condition ? 'selected' : '' }}>
+                                            {{ $condition }}
+                                        </option>
+                                    @endforeach
                                 </select>
 
                                 @if ($errors->has('condition'))

@@ -29,13 +29,19 @@
                             <td>Jenis Kelamin</td>
                             <td>:</td>
                             <td class="text-wrap">
-                                <select class="form-control" name="gender" id="gender" required>
-                                    <option selected>Pilih..</option>
+                                <select class="form-control{{ $errors->has('gender') ? ' is-invalid' : '' }}" name="gender"
+                                    id="gender" required>
+
+                                    <option value="" disabled>Pilih...</option>
+
                                     <option value="Laki-laki" {{ $user->gender === 'Laki-laki' ? 'selected' : '' }}>
-                                        Laki-laki</option>
+                                        Laki-laki
+                                    </option>
                                     <option value="Perempuan" {{ $user->gender === 'Perempuan' ? 'selected' : '' }}>
-                                        Perempuan</option>
+                                        Perempuan
+                                    </option>
                                 </select>
+
 
                                 @if ($errors->has('gender'))
                                     <div class="invalid-feedback font-weight-bold d-block">
@@ -65,8 +71,8 @@
                                 <div class="input-group mb-3">
                                     <input type="password"
                                         class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
-                                        name="password" id="password" value="{{ $user->password }}"
-                                        placeholder="Masukkan password.." required>
+                                        name="password" id="password"
+                                        placeholder="Kosongkan jika tidak ingin mengubah password">
                                     <div class="input-group-prepend show-password">
                                         <span class="input-group-text">
                                             <i class="fas fa-eye" id="eye"></i>
@@ -123,12 +129,16 @@
                         <td>Jabatan</td>
                         <td>:</td>
                         <td class="text-wrap">
-                            <select class="form-control" name="role_id" id="role_id" required>
-                                <option selected>Pilih..</option>
-                                @foreach ($roles as $key => $role)
+                            <select class="form-control{{ $errors->has('role_id') ? ' is-invalid' : '' }}" name="role_id"
+                                id="role_id" required>
+
+                                <option value="" disabled>Pilih...</option>
+
+                                @foreach ($roles as $role)
                                     <option value="{{ $role->id }}"
-                                        {{ $user->role_id === $role->id ? 'selected' : '' }}>
-                                        {{ $role->name }}</option>
+                                        {{ $user->role_id == $role->id ? 'selected' : '' }}>
+                                        {{ $role->name }}
+                                    </option>
                                 @endforeach
                             </select>
 
@@ -155,4 +165,13 @@
 
 @push('modal')
     @include('profile-modal')
+@endpush
+
+@push('scripts')
+    <script>
+        $('.custom-file-input').on('change', function() {
+            let fileName = $(this).val().split('\\').pop();
+            $(this).next('.custom-file-label').addClass("selected").html(fileName);
+        });
+    </script>
 @endpush

@@ -21,3 +21,5 @@
                 </section>
             </div>
             @include('layouts.footer')
+            @stack('scripts')
+</body>

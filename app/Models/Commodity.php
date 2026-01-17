@@ -10,6 +10,12 @@ class Commodity extends Model
 {
     use HasFactory, SoftDeletes;
 
+    public const CONDITIONS = [
+        'Layak',
+        'Layak Sebagian',
+        'Tidak Layak',
+    ];
+
     public function commodity_categories()
     {
         return $this->belongsTo(CommodityCategory::class, 'commodity_category_id');

@@ -32,9 +32,14 @@
                                 <label for="gender">Jenis Kelamin</label>
                                 <select class="form-control{{ $errors->has('gender') ? ' is-invalid' : '' }}"
                                     name="gender" id="gender" required>
-                                    <option selected>Pilih..</option>
-                                    <option value=" Laki-laki">Laki-laki</option>
-                                    <option value="Perempuan">Perempuan</option>
+
+                                    <option value="" disabled selected>Pilih...</option>
+                                    <option value="Laki-laki" {{ old('gender') == 'Laki-laki' ? 'selected' : '' }}>
+                                        Laki-laki
+                                    </option>
+                                    <option value="Perempuan" {{ old('gender') == 'Perempuan' ? 'selected' : '' }}>
+                                        Perempuan
+                                    </option>
                                 </select>
 
                                 @if ($errors->has('gender'))
@@ -126,9 +131,13 @@
                                 <label for="role_id">Jabatan</label>
                                 <select class="form-control{{ $errors->has('role_id') ? ' is-invalid' : '' }}"
                                     name="role_id" id="role_id" required>
-                                    <option selected>Pilih..</option>
-                                    @foreach ($roles as $key => $role)
-                                        <option value="{{ $role->id }}">{{ $role->name }}</option>
+
+                                    <option value="" disabled selected>Pilih...</option>
+                                    @foreach ($roles as $role)
+                                        <option value="{{ $role->id }}"
+                                            {{ old('role_id') == $role->id ? 'selected' : '' }}>
+                                            {{ $role->name }}
+                                        </option>
                                     @endforeach
                                 </select>
 
@@ -149,3 +158,12 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+    <script>
+        $('.custom-file-input').on('change', function() {
+            let fileName = $(this).val().split('\\').pop();
+            $(this).next('.custom-file-label').addClass("selected").html(fileName);
+        });
+    </script>
+@endpush

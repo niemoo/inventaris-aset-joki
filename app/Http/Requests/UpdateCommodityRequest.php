@@ -27,11 +27,7 @@ class UpdateCommodityRequest extends FormRequest
             'user_id' => 'required',
             'commodity_category_id' => 'required',
             'commodity_location_id' => 'required',
-            // 'unique_commodity_number' => 'required|min:3|max:191',
             'name' => 'required|min:3|max:191',
-            // 'amount' => 'required|min:1|max:191',
-            // 'register_date' => 'required',
-            // 'update_date' => 'required',
             'condition' => 'required'
         ];
     }

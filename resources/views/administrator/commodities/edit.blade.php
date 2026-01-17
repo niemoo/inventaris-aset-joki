@@ -107,18 +107,19 @@
                     <tr>
                         <td style="width: 145px;">Kondisi</td>
                         <td style="width: 10px;">:</td>
+
                         <td class="text-wrap">
-                            <select class="form-control" name="condition" id="condition" required>
-                                <option selected>Pilih..</option>
-                                <option value="Sudah Layak"
-                                    {{ $commodity->condition === 'Sudah Layak' ? 'selected' : '' }}>
-                                    Layak</option>
-                                <option value="Layak Sebagian"
-                                    {{ $commodity->condition === 'Layak Sebagian' ? 'selected' : '' }}>Layak Sebagian
+                            <select class="form-control" name="condition" required>
+                                <option value="" disabled {{ !$commodity->condition ? 'selected' : '' }}>
+                                    Pilih..
                                 </option>
-                                <option value="Tidak Layak"
-                                    {{ $commodity->condition === 'Tidak Layak' ? 'selected' : '' }}>
-                                    Tidak Layak</option>
+
+                                @foreach (\App\Models\Commodity::CONDITIONS as $condition)
+                                    <option value="{{ $condition }}"
+                                        {{ old('condition', $commodity->condition) === $condition ? 'selected' : '' }}>
+                                        {{ $condition }}
+                                    </option>
+                                @endforeach
                             </select>
 
                             @if ($errors->has('condition'))

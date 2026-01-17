@@ -80,7 +80,8 @@
                                 <input type="number"
                                     class="form-control{{ $errors->has('amount') ? ' is-invalid' : '' }}"
                                     name="amount" id="amount" value="{{ old('amount') }}"
-                                    placeholder="Masukkan jumlah.." required>
+                                    placeholder="Masukkan jumlah.." min="1" step="1" required>
+
 
                                 @if ($errors->has('amount'))
                                     <div class="invalid-feedback font-weight-bold d-block">
@@ -100,3 +101,27 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+    <script>
+        const amountInput = document.getElementById('amount');
+
+        amountInput.addEventListener('keydown', function(e) {
+            if (
+                e.key === '-' ||
+                e.key === '+' ||
+                e.key === 'e' ||
+                e.key === 'E' ||
+                e.key === '.'
+            ) {
+                e.preventDefault();
+            }
+        });
+
+        amountInput.addEventListener('input', function() {
+            if (this.value !== '' && Number(this.value) < 1) {
+                this.value = '';
+            }
+        });
+    </script>
+@endpush

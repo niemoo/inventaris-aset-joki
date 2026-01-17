@@ -36,10 +36,10 @@
                                 <td>{{ $commodity->commodity_locations->name }}</td>
                                 {{-- <td>{{ $commodity->amount }}</td> --}}
                                 <td>{{ indonesian_date_format($commodity->created_at) }}</td>
-                                @if ($commodity->condition === 'Sudah Layak')
+                                @if ($commodity->condition === 'Layak')
                                     <td>
                                         <span class="badge badge-pill badge-success" data-toggle="tooltip"
-                                            data-placement="top" title="Sudah Layak">Layak</span>
+                                            data-placement="top" title="Layak">Layak</span>
                                     </td>
                                 @elseif($commodity->condition === 'Layak Sebagian')
                                     <td>
