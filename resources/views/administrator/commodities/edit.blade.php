@@ -41,7 +41,7 @@
                                 @endif
                             </td>
                         </tr>
-                        <tr>
+                        {{-- <tr>
                             <td>Jumlah</td>
                             <td>:</td>
                             <td class="text-wrap">
@@ -54,7 +54,7 @@
                                     </div>
                                 @endif
                             </td>
-                        </tr>
+                        </tr> --}}
                         <tr>
                             <td>Jenis Aset</td>
                             <td>:</td>
@@ -112,7 +112,7 @@
                                 <option selected>Pilih..</option>
                                 <option value="Sudah Layak"
                                     {{ $commodity->condition === 'Sudah Layak' ? 'selected' : '' }}>
-                                    Sudah Layak</option>
+                                    Layak</option>
                                 <option value="Layak Sebagian"
                                     {{ $commodity->condition === 'Layak Sebagian' ? 'selected' : '' }}>Layak Sebagian
                                 </option>
@@ -128,7 +128,7 @@
                             @endif
                         </td>
                     </tr>
-                    <tr>
+                    {{-- <tr>
                         <td>Tanggal Register</td>
                         <td>:</td>
                         <td class="text-wrap">
@@ -175,7 +175,7 @@
                                 </div>
                             @endif
                         </td>
-                    </tr>
+                    </tr> --}}
                     <tr>
                         <td>Pengguna</td>
                         <td>:</td>

@@ -9,7 +9,7 @@
         {{-- <img src="{{ asset('assets/images/logo.png') }}" width="10%"> --}}
 
         <h3>Laporan Data Inventaris</h3>
-        <h3>Pertanian Sejahtera</h3>
+        <h3>Peternakan Sejahtera</h3>
         <hr>
         <br>
     </div>

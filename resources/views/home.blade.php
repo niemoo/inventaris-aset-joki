@@ -29,7 +29,7 @@
                 </a>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>Jumlah Jenis Aset</h4>
+                        <h4>Jumlah Jenis Barang</h4>
                     </div>
                     <div class="card-body count">
                         {{ count($commodity_categories) }}
@@ -63,7 +63,7 @@
                 </a>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>Jumlah Aset</h4>
+                        <h4>Jumlah Barang</h4>
                     </div>
                     <div class="card-body count">
                         {{ count($commodities) }}

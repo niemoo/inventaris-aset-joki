@@ -17,11 +17,7 @@ class CommodityRepository
         $commodity->user_id = $request->user_id;
         $commodity->commodity_category_id = $request->commodity_category_id;
         $commodity->commodity_location_id = $request->commodity_location_id;
-        // $commodity->unique_commodity_number = $request->unique_commodity_number;
         $commodity->name = $request->name;
-        $commodity->amount = $request->amount;
-        $commodity->register_date = $request->register_date;
-        $commodity->update_date = $request->update_date;
         $commodity->condition = $request->condition;
         $commodity->save();
     }
@@ -37,11 +33,7 @@ class CommodityRepository
         $commodity->user_id = $request->user_id;
         $commodity->commodity_category_id = $request->commodity_category_id;
         $commodity->commodity_location_id = $request->commodity_location_id;
-        // $commodity->unique_commodity_number = $request->unique_commodity_number;
         $commodity->name = $request->name;
-        $commodity->amount = $request->amount;
-        $commodity->register_date = $request->register_date;
-        $commodity->update_date = $request->update_date;
         $commodity->condition = $request->condition;
         $commodity->save();
     }

@@ -30,9 +30,9 @@ class UserRepository
     {
         $user = new User();
         $user->role_id = $request->role_id;
-        $user->unique_user_number = $request->unique_user_number;
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->email_verified_at = now();
         $user->gender = $request->gender;
         $user->phone_number = $request->phone_number;
         $user->photo = $this->fileUploadController->uploadProfilePicture($request);
@@ -60,7 +60,6 @@ class UserRepository
         }
 
         $user->role_id = $request->role_id;
-        $user->unique_user_number = $request->unique_user_number;
         $user->name = $request->name;
         $user->email = $request->email;
         $user->gender = $request->gender;
@@ -76,8 +75,11 @@ class UserRepository
         if (File::exists(public_path($user->photo))) {
             File::delete(public_path($user->photo));
         }
+        
+        $user->deleted_at = now();
+        $user->save();
 
-        $user->delete();
+        // $user->delete();
     }
 
     public function updateProfile($request)

@@ -14,31 +14,16 @@
                     <div class="row">
                         <div class="col-lg-4">
                             <div class="form-group">
-                                <label for="unique_user_number">ID Pengguna</label>
-                                <input type="text"
-                                    class="form-control{{ $errors->has('unique_user_number') ? ' is-invalid' : '' }}"
-                                    name="unique_user_number" id="unique_user_number"
-                                    value="{{ old('unique_user_number') }}" placeholder="Masukkan ID pengguna.."
-                                    autofocus required>
-
-                                @if($errors->has('unique_user_number'))
-                                <div class="invalid-feedback font-weight-bold d-block">
-                                    {{ $errors->first('unique_user_number') }}
-                                </div>
-                                @endif
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="form-group">
                                 <label for="name">Nama Lengkap</label>
-                                <input type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
-                                    name="name" id="name" value="{{ old('name') }}"
-                                    placeholder="Masukkan nama lengkap.." required>
+                                <input type="text"
+                                    class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name"
+                                    id="name" value="{{ old('name') }}" placeholder="Masukkan nama lengkap.."
+                                    required>
 
-                                @if($errors->has('name'))
-                                <div class="invalid-feedback font-weight-bold d-block">
-                                    {{ $errors->first('name') }}
-                                </div>
+                                @if ($errors->has('name'))
+                                    <div class="invalid-feedback font-weight-bold d-block">
+                                        {{ $errors->first('name') }}
+                                    </div>
                                 @endif
                             </div>
                         </div>
@@ -52,10 +37,10 @@
                                     <option value="Perempuan">Perempuan</option>
                                 </select>
 
-                                @if($errors->has('gender'))
-                                <div class="invalid-feedback font-weight-bold d-block">
-                                    {{ $errors->first('gender') }}
-                                </div>
+                                @if ($errors->has('gender'))
+                                    <div class="invalid-feedback font-weight-bold d-block">
+                                        {{ $errors->first('gender') }}
+                                    </div>
                                 @endif
                             </div>
                         </div>
@@ -65,14 +50,14 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
-                                    name="email" id="email" value="{{ old('email') }}" placeholder="Masukkan email.."
-                                    required>
+                                <input type="email"
+                                    class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email"
+                                    id="email" value="{{ old('email') }}" placeholder="Masukkan email.." required>
 
-                                @if($errors->has('email'))
-                                <div class="invalid-feedback font-weight-bold d-block">
-                                    {{ $errors->first('email') }}
-                                </div>
+                                @if ($errors->has('email'))
+                                    <div class="invalid-feedback font-weight-bold d-block">
+                                        {{ $errors->first('email') }}
+                                    </div>
                                 @endif
                             </div>
                         </div>
@@ -89,10 +74,10 @@
                                         </span>
                                     </div>
 
-                                    @if($errors->has('password'))
-                                    <div class="invalid-feedback font-weight-bold d-block">
-                                        {{ $errors->first('password') }}
-                                    </div>
+                                    @if ($errors->has('password'))
+                                        <div class="invalid-feedback font-weight-bold d-block">
+                                            {{ $errors->first('password') }}
+                                        </div>
                                     @endif
                                 </div>
                             </div>
@@ -108,10 +93,10 @@
                                     name="phone_number" id="phone_number" value="{{ old('phone_number') }}"
                                     placeholder="Masukkan nomor telepon.." required>
 
-                                @if($errors->has('phone_number'))
-                                <div class="invalid-feedback font-weight-bold d-block">
-                                    {{ $errors->first('phone_number') }}
-                                </div>
+                                @if ($errors->has('phone_number'))
+                                    <div class="invalid-feedback font-weight-bold d-block">
+                                        {{ $errors->first('phone_number') }}
+                                    </div>
                                 @endif
                             </div>
                         </div>
@@ -127,10 +112,10 @@
                                         name="photo" id="photo" required>
                                     <label class="custom-file-label">Choose file...</label>
 
-                                    @if($errors->has('photo'))
-                                    <div class="invalid-feedback font-weight-bold d-block">
-                                        {{ $errors->first('photo') }}
-                                    </div>
+                                    @if ($errors->has('photo'))
+                                        <div class="invalid-feedback font-weight-bold d-block">
+                                            {{ $errors->first('photo') }}
+                                        </div>
                                     @endif
                                 </div>
                             </div>
@@ -142,15 +127,15 @@
                                 <select class="form-control{{ $errors->has('role_id') ? ' is-invalid' : '' }}"
                                     name="role_id" id="role_id" required>
                                     <option selected>Pilih..</option>
-                                    @foreach($roles as $key => $role)
-                                    <option value="{{ $role->id }}">{{ $role->name }}</option>
+                                    @foreach ($roles as $key => $role)
+                                        <option value="{{ $role->id }}">{{ $role->name }}</option>
                                     @endforeach
                                 </select>
 
-                                @if($errors->has('role_id'))
-                                <div class="invalid-feedback font-weight-bold d-block">
-                                    {{ $errors->first('role_id') }}
-                                </div>
+                                @if ($errors->has('role_id'))
+                                    <div class="invalid-feedback font-weight-bold d-block">
+                                        {{ $errors->first('role_id') }}
+                                    </div>
                                 @endif
                             </div>
                         </div>

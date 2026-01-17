@@ -9,14 +9,15 @@
         {{-- <img src="{{ asset('assets/images/logo.png') }}" width="10%"> --}}
 
         <h3>Laporan Data Inventaris</h3>
-        <h3>Pertanian Sejahtera</h3>
+        <h3>Peternakan Sejahtera</h3>
         <hr>
         <br>
     </div>
     <table width="90%" border="0" align="center">
         <tr>
             <td>
-                <h4>&nbsp;Hasil Laporan Data Inventaris Tahun {{ $year }}</h4>
+                <h4>&nbsp;Hasil Laporan Data Inventaris Barang Masuk Tanggal {{ indonesian_date_format($start_date) }} -
+                    {{ indonesian_date_format($end_date) }}</h4>
             </td>
         </tr>
     </table>
@@ -34,17 +35,19 @@
                 <td align="center">Tanggal Update</td>
                 <td align="center">User</td>
             </tr>
-            @foreach ($commodities as $key => $commodity)
+            @foreach ($commodities as $key => $commodityIn)
                 <tr>
                     <td>{{ $key + 1 }}</td>
-                    <td>{{ $commodity->name }}</td>
-                    <td>{{ $commodity->commodity_categories->name }}</td>
-                    <td>{{ $commodity->commodity_locations->name }}</td>
-                    <td>{{ $commodity->amount }}</td>
-                    <td>{{ indonesian_date_format($commodity->register_date) }}</td>
-                    <td>{{ $commodity->condition }}</td>
-                    <td>{{ indonesian_date_format($commodity->update_date) }}</td>
-                    <td>{{ $commodity->users->name }}</td>
+                    <td>{{ $commodityIn->commodity->name ?? '-' }}</td>
+                    <td>{{ $commodityIn->commodity->commodity_categories->name ?? '-' }}</td>
+                    <td>{{ $commodityIn->commodity->commodity_locations->name ?? '-' }}</td>
+                    <td>{{ $commodityIn->amount }}</td>
+                    <td>{{ indonesian_date_format($commodityIn->commodity->register_date ?? $commodityIn->date_in) }}
+                    </td>
+                    <td>{{ $commodityIn->commodity->condition ?? '-' }}</td>
+                    <td>{{ indonesian_date_format($commodityIn->commodity->update_date ?? $commodityIn->updated_at) }}
+                    </td>
+                    <td>{{ $commodityIn->users->name ?? '-' }}</td>
                 </tr>
             @endforeach
         </tbody>
@@ -56,7 +59,7 @@
             <tr>
                 <td width="20%">Mengetahui</td>
                 <td width="60%">&nbsp;</td>
-                <td width="20%">Wonosobo, ............. {{ $year }}</td>
+                <td width="20%">Wonosobo, {{ indonesian_date_format($start_date) }}</td>
             </tr>
             <tr>
                 <td>Pemilik</td>

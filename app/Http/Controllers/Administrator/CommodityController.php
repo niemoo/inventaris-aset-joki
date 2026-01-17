@@ -55,7 +55,7 @@ class CommodityController extends Controller
     {
         $this->commodityRepository->store($request);
 
-        return redirect()->route('admin.aset.index')->with('success', 'Data aset berhasil ditambahkan!');
+        return redirect()->route('admin.aset.index')->with('success', 'Data barang berhasil ditambahkan!');
     }
 
     /**
@@ -85,7 +85,7 @@ class CommodityController extends Controller
     {
         $this->commodityRepository->update($request, $id);
 
-        return redirect()->route('admin.aset.edit', $id)->with('success', 'Data aset berhasil diubah!');
+        return redirect()->route('admin.aset.edit', $id)->with('success', 'Data barang berhasil diubah!');
     }
 
     /**
@@ -98,6 +98,6 @@ class CommodityController extends Controller
     {
         $this->commodityRepository->commodityFind($id)->delete();
 
-        return redirect()->route('admin.aset.index')->with('success', 'Data aset berhasil dihapus!');
+        return redirect()->route('admin.aset.index')->with('success', 'Data barang berhasil dihapus!');
     }
 }

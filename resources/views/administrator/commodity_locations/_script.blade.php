@@ -2,9 +2,9 @@
     $(function() {
         $('.commodity-location-edit').on('click', function() {
             let id = $(this).data('id');
-            let url = "{{ url('ruangan') }}/" + id
+            let url = "{{ url('tempat') }}/" + id
             $.ajax({
-                url: "{{ url('ruangan/json') }}/" + id,
+                url: "{{ url('tempat/json') }}/" + id,
                 success: function(data) {
                     $('#name_edit').val(data.data.name);
                     $('#description_edit').val(data.data.description);

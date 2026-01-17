@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'Halaman Aset', 'section_header' => 'Aset'])
+@extends('layouts.app', ['title' => 'Halaman Barang', 'section_header' => 'Barang'])
 
 @section('content')
     <div class="row">
@@ -17,9 +17,9 @@
                         <tr>
                             <th>No</th>
                             <th>Nama</th>
-                            <th>Jenis Aset</th>
+                            <th>Jenis Barang</th>
                             <th>Tempat</th>
-                            <th>Jumlah</th>
+                            {{-- <th>Jumlah</th> --}}
                             <th>Tanggal Register</th>
                             <th>Kondisi</th>
                             <th>Tanggal Update</th>
@@ -34,12 +34,12 @@
                                 <td>{{ $commodity->name }}</td>
                                 <td>{{ $commodity->commodity_categories->name }}</td>
                                 <td>{{ $commodity->commodity_locations->name }}</td>
-                                <td>{{ $commodity->amount }}</td>
-                                <td>{{ indonesian_date_format($commodity->register_date) }}</td>
+                                {{-- <td>{{ $commodity->amount }}</td> --}}
+                                <td>{{ indonesian_date_format($commodity->created_at) }}</td>
                                 @if ($commodity->condition === 'Sudah Layak')
                                     <td>
                                         <span class="badge badge-pill badge-success" data-toggle="tooltip"
-                                            data-placement="top" title="Sudah Layak">Sudah Layak</span>
+                                            data-placement="top" title="Sudah Layak">Layak</span>
                                     </td>
                                 @elseif($commodity->condition === 'Layak Sebagian')
                                     <td>
@@ -52,7 +52,7 @@
                                             data-placement="top" title="Tidak Layak">Tidak Layak</span>
                                     </td>
                                 @endif
-                                <td>{{ indonesian_date_format($commodity->update_date) }}</td>
+                                <td>{{ indonesian_date_format($commodity->updated_at) }}</td>
                                 {{-- <td>{{ $commodity->users->name }}</td> --}}
                                 <td>
                                     <div class="btn-group btn-group-justified">

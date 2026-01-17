@@ -31,9 +31,9 @@
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label for="name">Nama</label>
-                                <input type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
-                                    name="name" id="name" value="{{ old('name') }}"
-                                    placeholder="Masukkan nama.." required>
+                                <input type="text"
+                                    class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name"
+                                    id="name" value="{{ old('name') }}" placeholder="Masukkan nama.." required>
 
                                 @if ($errors->has('name'))
                                     <div class="invalid-feedback font-weight-bold d-block">
@@ -42,7 +42,7 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="col-lg-4">
+                        {{-- <div class="col-lg-4">
                             <div class="form-group">
                                 <label for="amount">Jumlah</label>
                                 <input type="number"
@@ -52,6 +52,24 @@
                                 @if ($errors->has('amount'))
                                     <div class="invalid-feedback font-weight-bold d-block">
                                         {{ $errors->first('amount') }}
+                                    </div>
+                                @endif
+                            </div>
+                        </div> --}}
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label for="user_id">Pengguna</label>
+                                <select class="form-control{{ $errors->has('user_id') ? ' is-invalid' : '' }}"
+                                    name="user_id" id="user_id" required>
+                                    <option selected>Pilih..</option>
+                                    @foreach ($users as $key => $user)
+                                        <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                    @endforeach
+                                </select>
+
+                                @if ($errors->has('user_id'))
+                                    <div class="invalid-feedback font-weight-bold d-block">
+                                        {{ $errors->first('user_id') }}
                                     </div>
                                 @endif
                             </div>
@@ -119,7 +137,7 @@
                         </div>
                     </div>
 
-                    <div class="row">
+                    {{-- <div class="row">
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label for="register_date">Tanggal Register</label>
@@ -170,29 +188,12 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-4">
-                            <div class="form-group">
-                                <label for="user_id">Pengguna</label>
-                                <select class="form-control{{ $errors->has('user_id') ? ' is-invalid' : '' }}"
-                                    name="user_id" id="user_id" required>
-                                    <option selected>Pilih..</option>
-                                    @foreach ($users as $key => $user)
-                                        <option value="{{ $user->id }}">{{ $user->name }}</option>
-                                    @endforeach
-                                </select>
+                    </div> --}}
 
-                                @if ($errors->has('user_id'))
-                                    <div class="invalid-feedback font-weight-bold d-block">
-                                        {{ $errors->first('user_id') }}
-                                    </div>
-                                @endif
-                            </div>
-                        </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                        <button type="submit" class="btn btn-primary">Tambah</button>
                     </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                <button type="submit" class="btn btn-primary">Tambah</button>
             </div>
             </form>
         </div>

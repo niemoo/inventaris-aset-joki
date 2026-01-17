@@ -25,7 +25,6 @@ class StoreUserRequest extends FormRequest
     {
         return [
             'role_id' => 'required',
-            'unique_user_number' => 'required|min:3|max:191',
             'name' => 'required|min:3|max:191',
             'email' => 'required|email|min:3|max:191',
             'gender' => 'required',
@@ -44,10 +43,6 @@ class StoreUserRequest extends FormRequest
     {
         return [
             'role_id.required' => 'Kolom jabatan wajib diisi!',
-
-            'unique_user_number.required' => 'Kolom id pengguna wajib diisi!',
-            'unique_user_number.min' => 'Kolom id pengguna minimal :min karakter!',
-            'unique_user_number.max' => 'Kolom id pengguna maksimal :max karakter!',
 
             'name.required' => 'Kolom nama lengkap wajib diisi!',
             'name.min' => 'Kolom nama lengkap minimal :min karakter!',

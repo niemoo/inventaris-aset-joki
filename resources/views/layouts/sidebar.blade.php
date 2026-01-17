@@ -1,6 +1,6 @@
 <aside id="sidebar-wrapper">
     <div class="sidebar-brand">
-        <a href="index.html">Pertanian Sejahtera</a>
+        <a href="index.html">Peternakan Sejahtera</a>
     </div>
     <div class="sidebar-brand sidebar-brand-sm">
         <a href="index.html">TA</a>
@@ -20,16 +20,25 @@
                     <span>Tempat</span></a></li>
             <li class="{{ request()->routeIs('admin.jenis-aset.*') ? 'active' : '' }}"><a class="nav-link"
                     href="{{ route('admin.jenis-aset.index') }}"><i class="fas fa-th-large"></i> <span>Jenis
-                        Aset</span></a></li>
+                        Barang</span></a></li>
             <li class="{{ request()->routeIs('admin.aset.*') ? 'active' : '' }}"><a class="nav-link"
-                    href="{{ route('admin.aset.index') }}"><i class="fas fa-boxes"></i> <span>Data Aset</span></a></li>
+                    href="{{ route('admin.aset.index') }}"><i class="fas fa-boxes"></i> <span>List Barang</span></a>
+            </li>
+            <li class="{{ request()->routeIs('admin.barang-masuk.*') ? 'active' : '' }}"><a class="nav-link"
+                    href="{{ route('admin.barang-masuk.index') }}"><i class="fas fa-sign-in-alt"></i> <span>Data
+                        Barang Masuk</span></a>
+            </li>
+            <li class="{{ request()->routeIs('admin.barang-keluar.*') ? 'active' : '' }}"><a class="nav-link"
+                    href="{{ route('admin.barang-keluar.index') }}"><i class="fas fa-sign-out-alt"></i> <span>Data
+                        Barang Keluar</span></a>
+            </li>
         @endif
 
-        @if (auth()->user()->role_id === 1)
+        {{-- @if (auth()->user()->role_id === 1)
             <li class="{{ request()->routeIs('admin.laporan.*') ? 'active' : '' }}"><a class="nav-link"
                     href="{{ route('admin.laporan.index') }}"><i class="fas fa-table"></i> <span>Laporan</span></a>
             </li>
-        @endif
+        @endif --}}
 
         @if (auth()->user()->role_id === 2)
             <li class="{{ request()->routeIs('admin.tempat.*') ? 'active' : '' }}"><a class="nav-link"
@@ -37,11 +46,20 @@
                     <span>Tempat</span></a></li>
             <li class="{{ request()->routeIs('admin.jenis-aset.*') ? 'active' : '' }}"><a class="nav-link"
                     href="{{ route('admin.jenis-aset.index') }}"><i class="fas fa-th-large"></i> <span>Jenis
-                        Aset</span></a></li>
+                        Barang</span></a></li>
             <li class="{{ request()->routeIs('admin.aset.*') ? 'active' : '' }}"><a class="nav-link"
-                    href="{{ route('admin.aset.index') }}"><i class="fas fa-boxes"></i> <span>Data Aset</span></a></li>
+                    href="{{ route('admin.aset.index') }}"><i class="fas fa-boxes"></i> <span>Data Barang</span></a>
+            </li>
+            <li class="{{ request()->routeIs('admin.barang-masuk.*') ? 'active' : '' }}"><a class="nav-link"
+                    href="{{ route('admin.barang-masuk.index') }}"><i class="fas fa-sign-in-alt"></i> <span>Data
+                        Barang Masuk</span></a>
+            </li>
+            <li class="{{ request()->routeIs('admin.barang-keluar.*') ? 'active' : '' }}"><a class="nav-link"
+                    href="{{ route('admin.barang-keluar.index') }}"><i class="fas fa-sign-out-alt"></i> <span>Data
+                        Barang Keluar</span></a>
+            </li>
             {{-- <li class="{{ request()->routeIs('admin.ubah-aset.*') ? 'active' : '' }}"><a class="nav-link"
-                    href="{{ route('admin.ubah-aset.index') }}"><i class="fas fa-edit"></i> <span>Data Aset</span></a>
+                    href="{{ route('admin.ubah-aset.index') }}"><i class="fas fa-edit"></i> <span>Data Barang</span></a>
             </li> --}}
         @endif
     </ul>

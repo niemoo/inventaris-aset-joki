@@ -22,6 +22,7 @@ class CreateCommodityUpdatesTable extends Migration
             $table->bigInteger('amount');
             $table->date('update_date');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

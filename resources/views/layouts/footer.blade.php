@@ -1,6 +1,6 @@
 <footer class="main-footer">
     <div class="footer-left font-weight-bold">
-        Pertanian Sejahtera
+        Peternakan Sejahtera
     </div>
     <div class="footer-right">
         {{ date('Y') }}

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Administrator;
 
+use App\Models\CommodityIn;
 use App\Models\User;
 use App\Models\Commodity;
 use Illuminate\Http\Request;

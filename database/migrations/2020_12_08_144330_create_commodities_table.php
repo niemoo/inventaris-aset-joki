@@ -18,13 +18,14 @@ class CreateCommoditiesTable extends Migration
             $table->foreignId('user_id')->constrained();
             $table->foreignId('commodity_category_id')->constrained();
             $table->foreignId('commodity_location_id')->constrained();
-            // $table->string('unique_commodity_number');
             $table->string('name');
-            $table->bigInteger('amount');
-            $table->date('register_date');
-            $table->date('update_date');
+            // $table->bigInteger('amount');
+            $table->enum('unit', ['pcs', 'box', 'kg', 'liter']);
+            // $table->date('register_date');
+            // $table->date('update_date');
             $table->string('condition');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

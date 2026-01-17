@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AdministrativeStaff\CommodityUpdateController;
+use App\Http\Controllers\Administrator\CommodityInController;
+use App\Http\Controllers\Administrator\CommodityOutController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Administrator\UserController;
 use App\Http\Controllers\Administrator\CommodityCategoryController;
@@ -35,6 +37,10 @@ Route::middleware(['auth'])->name('admin.')->group(function () {
         Route::resource('/jenis-aset', CommodityCategoryController::class)->except('create', 'show', 'edit');
         Route::resource('/tempat', CommodityLocationController::class)->except('create', 'show', 'edit');
         Route::resource('/aset', CommodityController::class)->except('create', 'show');
+        Route::resource('/barang-masuk', CommodityInController::class)->except('create', 'show');
+        Route::resource('/barang-keluar', CommodityOutController::class)->except('create', 'show');
+        Route::get('/laporan/print/in', [PrintController::class, 'CommodityInPrintByDateRange'])->name('laporan.print.in');
+        Route::get('/laporan/print/out', [PrintController::class, 'CommodityOutPrintByDateRange'])->name('laporan.print.out');
 
         Route::get('/jenis-aset/json/{id}', [App\Http\Controllers\Administrator\Json\CommodityCategoryController::class, 'show']);
         Route::get('/tempat/json/{id}', [App\Http\Controllers\Administrator\Json\CommodityLocationController::class, 'show']);
@@ -48,5 +54,8 @@ Route::middleware(['auth'])->name('admin.')->group(function () {
     });
 
     Route::get('/laporan/print/{year}', [PrintController::class, 'printByYear'])->name('laporan.print.year');
+    Route::get('/laporan/print/in', [PrintController::class, 'CommodityInPrintByDateRange'])->name('laporan.print.in');
+    Route::get('/laporan/print/out', [PrintController::class, 'CommodityOutPrintByDateRange'])->name('laporan.print.out');
+
     Route::patch('/profil/edit', [HomeController::class, 'updateProfile'])->name('home.profile.edit');
 });

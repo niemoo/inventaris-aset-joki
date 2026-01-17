@@ -29,8 +29,6 @@ class CommoditySeeder extends Seeder
             'Keranjang Ayam',
             'Obat & Vitamin',
         ];
-        // 'Mesin Tetas Telur',
-        // 'Freezer Penyimpanan',
 
         $conditions = [
             'Layak',
@@ -45,9 +43,9 @@ class CommoditySeeder extends Seeder
                 'commodity_location_id' => mt_rand(1, 10),
                 // 'unique_commodity_number' => '00' . mt_rand(100, 500) . mt_rand(1, 9) . date('Y'),
                 'name' => $commodities[$i],
-                'amount' => mt_rand(5, 10),
-                'register_date' => Carbon::createFromDate(date('Y'), mt_rand(1, 12), mt_rand(1, 31)),
-                'update_date' => Carbon::createFromDate(date('Y'), mt_rand(1, 12), mt_rand(1, 31)),
+                // 'amount' => mt_rand(5, 10),
+                // 'register_date' => Carbon::createFromDate(date('Y'), mt_rand(1, 12), mt_rand(1, 31)),
+                // 'update_date' => Carbon::createFromDate(date('Y'), mt_rand(1, 12), mt_rand(1, 31)),
                 'condition' => $conditions[mt_rand(0, count($conditions) - 1)]
             ]);
         }

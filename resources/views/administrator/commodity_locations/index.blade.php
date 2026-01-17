@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'Halaman Ruangan', 'section_header' => 'Ruangan'])
+@extends('layouts.app', ['title' => 'Halaman Tempat', 'section_header' => 'Tempat'])
 
 @section('content')
     <div class="row">
@@ -56,6 +56,7 @@
 @push('modal')
     @include('administrator.commodity_locations.modal.create')
     @include('administrator.commodity_locations.modal.edit')
+    @include('profile-modal')
 @endpush
 
 @push('js')

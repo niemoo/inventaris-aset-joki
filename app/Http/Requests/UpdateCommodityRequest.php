@@ -29,9 +29,9 @@ class UpdateCommodityRequest extends FormRequest
             'commodity_location_id' => 'required',
             // 'unique_commodity_number' => 'required|min:3|max:191',
             'name' => 'required|min:3|max:191',
-            'amount' => 'required|min:1|max:191',
-            'register_date' => 'required',
-            'update_date' => 'required',
+            // 'amount' => 'required|min:1|max:191',
+            // 'register_date' => 'required',
+            // 'update_date' => 'required',
             'condition' => 'required'
         ];
     }
@@ -58,12 +58,12 @@ class UpdateCommodityRequest extends FormRequest
             'name.min' => 'Kolom nama minimal :min karakter!',
             'name.max' => 'Kolom nama maksimal :max karakter!',
 
-            'amount.required' => 'Kolom jumlah wajib diisi!',
-            'amount.min' => 'Kolom jumlah minimal :min karakter!',
-            'amount.max' => 'Kolom jumlah maksimal :max karakter!',
+            // 'amount.required' => 'Kolom jumlah wajib diisi!',
+            // 'amount.min' => 'Kolom jumlah minimal :min karakter!',
+            // 'amount.max' => 'Kolom jumlah maksimal :max karakter!',
 
-            'register_date.required' => 'Kolom tanggal register wajib diisi!',
-            'update_date.required' => 'Kolom tanggal update wajib diisi!',
+            // 'register_date.required' => 'Kolom tanggal register wajib diisi!',
+            // 'update_date.required' => 'Kolom tanggal update wajib diisi!',
             'condition.required' => 'Kolom kondisi wajib diisi!',
         ];
     }
